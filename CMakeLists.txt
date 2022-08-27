@@ -585,6 +585,11 @@ elseif(WIN32)
     target_link_libraries(antimicrox
         ${WIN_LIBS}
     )
+
+    option(PORTABLE "Compile app for portability (Windows only)" OFF)
+    if(PORTABLE)
+        add_definitions(-DWIN_PORTABLE_PACKAGE)
+    endif()
 endif(UNIX)
 
 target_link_libraries(antimicrox
